@@ -1,0 +1,6 @@
+Flask
+Flask_sqlalchemy
+Flask_login
+Flask_migrate
+Flask_Bcrypt
+Flask_cors
