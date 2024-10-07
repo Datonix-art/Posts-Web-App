@@ -1,4 +1,5 @@
 import React, {useState, useEffect } from "react";
+import CreateComment from "./CreateComment";
 import styles from '../modules/AllPosts.module.css'
 
 const AllPosts = () => {
@@ -34,6 +35,7 @@ const AllPosts = () => {
         <h1 className={styles.title}>{post.title}</h1>
         <p>{post.content}</p>
         <img src={image_path + post.image} alt={post.title} className={styles.image}/>
+        <CreateComment id={post.id}/>
       </li>
     )): (<p>No posts found!</p>)} 
    </ul>
