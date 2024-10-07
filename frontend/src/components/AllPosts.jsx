@@ -4,7 +4,8 @@ import styles from '../modules/AllPosts.module.css'
 
 const AllPosts = () => {
   const [posts, setPosts] = useState([])
-  const [errorMessage, setErrorMessage] = useState('')
+  const [error, setError] = useState(null)
+  const [message, setMessage] = useState(null)
   const url = 'http://127.0.0.1:5000/get_posts'
   const image_path = 'http://127.0.0.1:5000/static/images/'
 
@@ -16,9 +17,10 @@ const AllPosts = () => {
       })
       const data = await response.json()
       setPosts(data?.posts || [])
+      setMessage(data.message)
     } catch (err) {
       console.error(err.message)
-      setErrorMessage('Failed to fetch products from the server. Please they again later')
+      setError('Failed to fetch products from the server. Please they again later')
     } 
   }
 
